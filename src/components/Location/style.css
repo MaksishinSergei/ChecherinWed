@@ -1,0 +1,178 @@
+.location {
+  margin-bottom: 150px;
+}
+.location__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.location__title {
+  margin: 0 110px 100px 0;
+  text-align: right;
+  position: relative;
+  opacity: 0;
+  transition: all 1s linear;
+  &:after {
+    content: "";
+    position: absolute;
+    background-image: url("../../assets/paint.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px; /* Укажите нужные размеры */
+    height: 100px;
+    bottom: -37px; /* Позиционирование относительно h2 */
+    right: -43px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 1s linear;
+    transform: translateX(25px);
+  }
+}
+.location.visible .location__title::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+.location.visible .location__title {
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+.location__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.location__registration,
+.location__banquet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: all 1s linear;
+  transform: translateX(-25px);
+}
+
+.location.visible .location__registration {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
+}
+.location.visible .location__banquet {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
+}
+.image__signature {
+  opacity: 0;
+  transition: all 1s linear;
+  transform: translateX(25px);
+  margin: 25px 0 25px 0;
+  max-width: 350px;
+}
+
+.image__location {
+  margin: 25px 0 25px 0;
+  opacity: 0;
+  transition: all 1s linear;
+  transform: translateX(25px);
+}
+.location__map {
+  position: relative;
+  padding: 20px;
+  opacity: 0;
+  transition: all 1s linear;
+  transform: translateX(25px);
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #530d09 25%,
+        #530d09 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        #530d09 25%,
+        #530d09 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        270deg,
+        transparent 0%,
+        #530d09 25%,
+        #530d09 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        0deg,
+        transparent 0%,
+        #530d09 25%,
+        #530d09 50%,
+        transparent 100%
+      );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+.location.visible .image__signature,
+.location.visible .image__location,
+.location.visible .location__map {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.35s;
+}
+@media (max-width: 570px) {
+  .location__map iframe {
+    width: 370px;
+    height: 225px;
+  }
+  .image__signature {
+    max-width: 270px;
+  }
+  .image__location {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 440px) {
+  .location__title {
+    margin: 0 50px 75px 0;
+    &:after {
+      bottom: -37px;
+      right: -47px;
+    }
+  }
+  .location__map iframe {
+    width: 270px;
+    height: 210px;
+  }
+  .image__signature {
+    max-width: 270px;
+  }
+  .image__location {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 370px) {
+  .location__title {
+    margin: 0 50px 75px 0;
+  }
+  .location__map iframe {
+    width: 210px;
+    height: 175px;
+  }
+  .image__signature {
+    max-width: 210px;
+  }
+  .image__location {
+    width: 30px;
+    height: 30px;
+  }
+}

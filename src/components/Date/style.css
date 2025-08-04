@@ -1,0 +1,224 @@
+.date {
+  margin-bottom: 150px;
+}
+.date__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.date__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #530d09;
+}
+.date__title {
+  margin: 0 0 100px 50px;
+  align-items: start;
+  position: relative;
+  opacity: 0;
+  transition: all 1s linear;
+  &:after {
+    content: "";
+    position: absolute;
+    background-image: url("../../assets/paint.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px; /* Укажите нужные размеры */
+    height: 100px;
+    bottom: -35px; /* Позиционирование относительно h2 */
+    left: -25px;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.7s linear;
+    transform: translateX(-25px);
+  }
+}
+.date.visible .date__title::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+.date.visible .date__title {
+  opacity: 1;
+  transition-delay: 0.25;
+}
+.calendar__title {
+  font-size: 26px;
+  line-height: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: Blushes, sans-serif;
+  opacity: 0;
+  transition: all 1s ease;
+}
+.date.visible .calendar__title {
+  opacity: 1;
+  transition-delay: 0.65s;
+}
+.calendar__wrapper {
+  position: relative;
+  padding: 20px;
+  opacity: 0;
+  transition: all 1s ease;
+  &:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #530d09 25%,
+        #530d09 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        180deg,
+        transparent 0%,
+        #530d09 25%,
+        #530d09 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        270deg,
+        transparent 0%,
+        #530d09 25%,
+        #530d09 50%,
+        transparent 100%
+      ),
+      linear-gradient(
+        0deg,
+        transparent 0%,
+        #530d09 25%,
+        #530d09 50%,
+        transparent 100%
+      );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+.date.visible .calendar__wrapper {
+  opacity: 1;
+  transition-delay: 0.75s;
+}
+.date__text-block {
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 50px;
+}
+.date__text:first-child {
+  transform: translateY(10px);
+}
+.date__text:last-child {
+  transform: translateY(10px);
+}
+.date__text {
+  opacity: 0;
+  transition: all 1s linear;
+}
+.date.visible .date__text:first-child {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
+}
+.date.visible .date__text:last-child {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.45s;
+}
+.calendar__week {
+  font-size: 24px;
+  line-height: 28px;
+  font-family: Blushes, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.calendar__days {
+  font-size: 24px;
+  line-height: 28px;
+  font-family: Blushes, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+.day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.date__heart {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 78px;
+  right: 44px;
+  opacity: 0;
+  transition: all 1s ease-in;
+}
+
+.date.visible .date__heart {
+  opacity: 1;
+  transform: rotate(10deg);
+  transition-delay: 0.85s;
+}
+@media (max-width: 870px) {
+  .date__text-block {
+    max-width: 450px;
+  }
+  .date__title {
+    &:after {
+      bottom: -37px;
+      left: -33px;
+    }
+  }
+}
+@media (max-width: 570px) {
+  .date__text-block {
+    max-width: 400px;
+  }
+  .calendar__title {
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .calendar__week {
+    font-size: 20px;
+    line-height: 22px;
+  }
+  .calendar__days {
+    font-size: 18px;
+    line-height: 20px;
+  }
+  .date__heart {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 65px;
+    right: 40px;
+  }
+}
+@media (max-width: 440px) {
+  .date__text-block {
+    max-width: 310px;
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 370px) {
+  .date__title {
+    margin: 0 0 75px 50px;
+    &:after {
+      bottom: -37px;
+      left: -37px;
+    }
+  }
+  .date__text-block {
+    max-width: 270px;
+    margin-bottom: 25px;
+  }
+}

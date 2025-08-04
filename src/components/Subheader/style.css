@@ -1,0 +1,129 @@
+.subheader {
+  margin-bottom: 100px;
+}
+.subheader__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.subheader__text-block {
+  text-align: center;
+  margin-bottom: 50px;
+  max-width: 450px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 1s linear;
+}
+.subheader.visible .subheader__text-block {
+  transition-delay: 0.2s;
+  transform: translateY(0);
+  opacity: 1;
+}
+.subheader__img-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.image__newlyweds {
+  max-width: 300px;
+  position: relative;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 10px 10px 50px 10px;
+  box-shadow: 0px 2px 10px gray;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+}
+.subheader.visible .image__newlyweds {
+  transition-delay: 0.4s;
+  transform: rotate(-3deg);
+  opacity: 1;
+}
+.image_heart {
+  height: 150px;
+  width: 150px;
+  opacity: 0;
+  transition: all 1.2s linear;
+}
+.subheader__names {
+  font-family: Blushes, sans-serif;
+  font-size: 28px;
+  line-height: 32px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.name-1,
+.name-2,
+.name-3 {
+  opacity: 0;
+  transition: all 1s linear;
+}
+.name-1 {
+  transform: translateX(-25px);
+}
+.name-3 {
+  transform: translateX(25px);
+}
+.subheader.visible .name-1 {
+  transform: translateX(0);
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+.subheader.visible .name-3 {
+  transform: translateX(0);
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+.subheader.visible .name-2 {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+.subheader__names-text {
+  display: flex;
+  gap: 10px;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 600;
+}
+.subheader__names-res {
+  margin-top: 45px;
+  opacity: 0;
+  transition: all 1.2s linear;
+}
+.subheader.visible .subheader__names-res,
+.subheader.visible .image_heart {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+@media (max-width: 750px) {
+  .image__newlyweds {
+    max-width: 250px;
+  }
+}
+@media (max-width: 4200px) {
+  .image__newlyweds {
+    max-width: 200px;
+  }
+  .subheader__names {
+    font-size: 26px;
+    line-height: 28px;
+  }
+  .subheader__names-text {
+    font-size: 26px;
+    line-height: 28px;
+  }
+  .image_heart {
+    height: 125px;
+    width: 125px;
+  }
+  .subheader__names-res {
+    margin-top: 30px;
+  }
+}
