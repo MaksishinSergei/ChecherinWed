@@ -1,0 +1,65 @@
+.processing__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.back-button {
+  margin: 50px auto 50px auto;
+  font-family: Blushes, sans-serif;
+  font-size: 20px;
+  line-height: 22px;
+  padding: 15px 50px;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
+
+  /*opacity: 0;
+  transform: translateY(10px);
+  will-change: transform, opacity;
+  transition-delay: 1.6s;*/
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    background-image: url("../../assets/paint.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 90px;
+    bottom: -20px;
+    left: 10px;
+    z-index: -2;
+    color: #530d09;
+    transition: all 0.5s;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: 150px;
+    height: 80px;
+    bottom: -20px;
+    left: 30px;
+    z-index: -1;
+    transition: all 0.7s;
+    transform: translateX(150px);
+  }
+  &:hover::before {
+    transform: translateX(-10px);
+    will-change: transform, opacity;
+  }
+  &:active::before {
+    transform: translateX(-10px);
+    will-change: transform, opacity;
+  }
+  &:focus::before {
+    transform: translateX(-10px);
+    will-change: transform, opacity;
+  }
+}
+.processing__title {
+  text-align: center;
+  margin-bottom: 50px;
+}
